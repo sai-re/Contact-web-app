@@ -1,0 +1,187 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html, body {
+    height: 100%;
+    max-width: 1280px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+}
+
+@font-face {
+    font-family: 'Myriad Pro Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/myriad-pro/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+body {
+    font-family: 'Myriad Pro Regular', sans-serif, serif;
+}
+
+/*------------------MAIN----------------------*/
+
+@media (min-width: 20em) {
+    main {
+        width: 87.5%;
+        height: 400px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px 0px black;
+    }
+
+    #top {
+        height: 12.5%;
+        background: linear-gradient(to bottom, rgba(62,62,62,1) 2%,rgba(50,50,50,1) 50%,rgba(37,37,37,1) 100%);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: 2px solid black;
+    }
+
+    h4 {
+        color: rgb(200, 200, 200);
+        padding: 8% 0 0 6.4%;
+    }
+/*------------------MID----------------*/
+    #mid {  
+        height: 76.2%;
+        background-color: rgb(33,33,33);
+    }
+
+    #contacts {
+        display: inline-block;
+        list-style-image: url('../images/bullet.png');
+        margin-left: 10%;
+        width: 30%;
+    }
+
+    #contactinfo {
+        display: inline-block;
+        color: rgb(79, 79, 79);
+        margin-left: -1.9%;
+        width: 60%;
+    }
+    
+    .itemname {
+        padding: 0.63em 0 0.63em 1em;
+        border: 1px solid black;
+        border-left: inherit;
+    }
+    
+    .single {
+        background-color: rgb(72, 72, 72);
+        border: 1px solid black;
+        color: rgb(200, 200, 200);
+    }
+    
+    #link, #backbtn {
+        color: rgb(19, 206, 200);
+        text-decoration: underline;
+    }
+/*---------------BOTTOM------------*/
+    #bottom {
+        height: 12.5%;
+        background: linear-gradient(to bottom, rgba(62,62,62,1) 2%,rgba(50,50,50,1) 50%,rgba(37,37,37,1) 100%);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top: 2px solid black;
+        box-shadow:  0px -2px 27px 0px black;
+    }
+    
+    #dropdown {
+        width: 60%;
+        height: 60%;
+        margin: 2.5% 0 0 29%;
+        background-color: rgb(25, 25, 25);
+        color: rgb(200, 200, 200);
+    }
+}
+
+@media (min-width: 30em) {
+
+    main {
+        width: 58%;
+        height: 475px;
+    }
+    
+    #contactinfo {
+         margin-left: -1.9%;   
+    }
+    
+    .itemname, .single {
+        padding: 0.85em 0 0.85em 1em;
+    }
+}
+
+@media (min-width: 48em) {
+
+    main {
+        width: 36.5%;
+    }
+}
+
+@media (min-width: 64em) {
+
+    main {
+        width: 27.3%;
+    }
+    
+    #contactinfo {
+         margin-left: -1.9%;   
+    }
+}
+
+@media (min-width: 79.8em) {
+   #contactinfo {
+         margin-left: -1%;   
+    } 
+}
