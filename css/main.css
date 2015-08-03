@@ -117,7 +117,15 @@ body {
         border-left: inherit;
     }
     
-    .single {
+    #contactbox {
+        display: inline-block;
+        position: relative;
+        width: 58%;
+        bottom: 30%;
+    }
+    
+    .contactcontent {
+        padding: 5%;
         background-color: rgb(72, 72, 72);
         border: 1px solid black;
         color: rgb(200, 200, 200);
@@ -157,7 +165,7 @@ body {
          margin-left: -1.9%;   
     }
     
-    .itemname, .single {
+    .itemname {
         padding: 0.85em 0 0.85em 1em;
     }
 }

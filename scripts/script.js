@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-//constructor for object    
+//constructor for object 
     function ContactItem (name, email, number,address) {
         this.name = name;
         this.email = email;
@@ -19,55 +19,73 @@ $(document).ready(function() {
         new ContactItem('Jacques', 'jacques@aol.com', '323-555-124')
     ];
     
-    var contact = $('#contacts'),
-        contactinfo = $('#contactinfo');
+    //variable defined for html elements
+    var contact = $('#contacts'), 
+        contactinfo = $('#contactinfo'),
+        contactbox = $('#contactbox'); //save
     
 //function to print out names into list
     (function displayName() {
-        for (i = 0; i < contactarray.length; i++) {
+        //for loop that loops through array of objects to append list items to unordered list element
+        for (var i = 0; i < contactarray.length; i++) {
             contact.append('<li class="itemname"><a href="#">' + contactarray[i].name + '</a></li>');
         }
-    })();
+    }()); //IIFE as it's always running
+    
 //function to print other information based on option choice 
     function displayinfo () {
-        contactinfo.empty(); //empties the list 
-        for (i = 0; i < contactarray.length; i++) {
+        contactinfo.empty(); //empties the list so it doesn't add on existing 
+        for (var i = 0; i < contactarray.length; i++) {
             contactinfo.append('<li class="itemname">' + contactarray[i][$('#dropdown').val()] + '</li>');
-            $(".itemname").css("background-color", "inherit");
-        } //uses the value of #dropdown that matches object property 
-    }
-//function that contains full user information
-    function displaysingle(contactid) {
-        var Email = contactarray[contactid].email;
-        var Number = contactarray[contactid].number;
-        var Address = contactarray[contactid].address;
+            //uses the value of #dropdown that matches object property 
+            $(".itemname").css("background-color", "inherit"); //changes css back to default after back btn is pressed
+            contactbox.empty();
+            
+        } 
         
-        var backBtn = '<a id="backbtn" href="#">Back</a>';
-        var boxcontent = '<li class="single"><a id="link">' + Email+'</a><br><br>' + Number + '<br><br>' + Address + '<br><br>' + backBtn + '</li>';
-        
-        contactinfo.append(boxcontent);
+        $(contactinfo).css("display", "inline-block");
+            
     }
     
-    //displayName();
+//function that contains full user information
+    function displaysingle(contactid) {
+        //gets access to object information 
+        var Email = contactarray[contactid].email,
+            Number = contactarray[contactid].number,
+            Address = contactarray[contactid].address,
+            backBtn = '<a id="backbtn" href="#">Back</a>',
+            space = '<br><br>';
+
+        var boxcontent = '<div class="contactcontent"> <a id="link">'+ Email +'</a>' + space + Number + space + Address + space + backBtn + '</div>';
+        
+        contactbox.append(boxcontent); //appends box content to list
+    }
+    
     displayinfo();
     $('#dropdown').change(displayinfo); //calls function again if there is a change to #dropdown
     
-//click event handler to display user information if user is clicked
+//click event listener to display user information if user is clicked
     $('.itemname').on('click', function(event) {
+        //for in loop to gain access to name property 
         for (i in contactarray) {
-            if ($(event.target).html() === contactarray[i].name) {  
+            //if target of what I click on page is same as property name run code
+            if ( $(event.target).html() === contactarray[i].name ) {  
                 
-                $(".itemname").css("background-color", "inherit");
-                $(this).css("background-color", "rgb(79,79,79");
+                $(".itemname").css("background-color", "inherit");//changes what i previously clicked to default
+                $(this).css("background-color", "rgb(79,79,79"); //changes what I click to white
                 
-                contactid = i;
-                contactinfo.empty();
+                contactid = i; 
+                contactbox.empty(); //empty list when name is clicked
+                $(contactinfo).css("display", "none");
                 displaysingle(contactid);
-            }}
+            }
+        }
     })
+    
     //click event for back button
-        contactinfo.on('click','#backbtn', function(event) {
-            event.preventDefault();
+        contactbox.on('click','#backbtn', function(event) {
+            //event.preventDefault();
+            contactbox.empty();
             displayinfo(); 
     })
 })
